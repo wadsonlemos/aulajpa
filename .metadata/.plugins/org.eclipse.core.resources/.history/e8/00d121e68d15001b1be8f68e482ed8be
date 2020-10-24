@@ -1,0 +1,48 @@
+package carros;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+
+import carros.Modelo;
+import carros.Automovel;
+import carros.Marca;
+
+public class main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("carros");
+		EntityManager em = emf.createEntityManager();
+
+		em.getTransaction().begin();
+
+		DateFormat df = new SimpleDateFormat("dd-mm-yyyy");
+		Marca ma = new Marca(null, "Uno");
+		Marca ma = new Marca(null, "Marea");
+		Marca ma = new Marca(null, "Argo");
+		
+		Modelo m = new Modelo(null, "Fire", "220");
+		Modelo m = new Modelo(null, "Fire", "100");
+		Modelo m = new Modelo(null, "HGT ", "220");
+		
+		Automovel a = new Automovel(null, df.parse("23-10-2018"),"2020", "Bom Carro", "R$ 14000", "10" );
+		Automovel a = new Automovel(null, df.parse("23-10-2020"),"2020", "Bonito", "R$ 14000", "10" );
+		Automovel a = new Automovel(null, df.parse("23-10-2017"),"2020", "Economico", "R$ 14000", "10" );
+		
+		em.persist(ma);
+		em.persist(m);
+		em.persist(a);
+		
+		
+		em.getTransaction().commit();
+	
+
+	}
+
+}

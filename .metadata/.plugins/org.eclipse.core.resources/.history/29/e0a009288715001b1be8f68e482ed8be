@@ -1,0 +1,114 @@
+package carros;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+
+public class Modelo implements Serializable{
+	private static final long serialVersionUID = 1L;
+		@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "marca_id")
+	private Integer id;
+	
+	private String descricao;
+	 private Integer potencia;
+	 
+	
+	public Modelo() {
+		
+			
+	}
+	
+	
+private List<Modelo> modelo = new ArrayList<Modelo>();
+	
+	public List<Modelo> getAlunos() {
+		return modelo;
+	}
+	
+	
+	public void addModelo(Modelo m) {
+		this.modelo.add(m);
+		m.getModelo().add(this);
+	}
+
+
+
+	public void removeModelo(Modelo m) {
+		this.modelo.remove(m);
+		m.getModelo().remove(this);
+	}
+	
+	public List<Modelo> getModelo() {
+		return modelo;
+	}
+	
+	public Modelo(int id, String descricao, int potencia) {
+		this.id = id;
+		this.descricao = descricao;
+		this.potencia = potencia;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public Integer getPotencia() {
+		return potencia;
+	}
+
+	public void setPotencia(Integer potencia) {
+		this.potencia = potencia;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	
+	
+	
+	
+}
+
+

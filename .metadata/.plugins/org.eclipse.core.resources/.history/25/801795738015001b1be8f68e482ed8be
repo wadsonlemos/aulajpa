@@ -1,0 +1,88 @@
+package carros;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
+@Entity
+public class Automovel implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	int idautomovel;
+	int anofabricacao;
+	int anomodelo;
+	float observacao;
+	float preco;
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+	public int getIdautomovel() {
+		return idautomovel;
+	}
+	public void setIdautomovel(int idautomovel) {
+		this.idautomovel = idautomovel;
+	}
+	public int getAnofabricacao() {
+		return anofabricacao;
+	}
+	public void setAnofabricacao(int anofabricacao) {
+		this.anofabricacao = anofabricacao;
+	}
+	public int getAnomodelo() {
+		return anomodelo;
+	}
+	public void setAnomodelo(int anomodelo) {
+		this.anomodelo = anomodelo;
+	}
+	public float getObservacao() {
+		return observacao;
+	}
+	public void setObservacao(float observacao) {
+		this.observacao = observacao;
+	}
+	public float getPreco() {
+		return preco;
+	}
+	public void setPreco(float preco) {
+		this.preco = preco;
+	}
+	public int getKilometragem() {
+		return kilometragem;
+	}
+	public void setKilometragem(int kilometragem) {
+		this.kilometragem = kilometragem;
+	}
+	public int getModelo_id() {
+		return modelo_id;
+	}
+	public void setModelo_id(int modelo_id) {
+		this.modelo_id = modelo_id;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	int kilometragem;
+	int modelo_id;
+	
+}
